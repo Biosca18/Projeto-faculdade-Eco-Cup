@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="css/cadastro.css"/>
+  <title>Cadastro</title>
+  
+</head>
+<body class="cadastro-page">
+
+  <header class="header">
+    <div class="container header-content">
+      <div class="logo">
+        <img src="assets/imgs/logoEcoCup.png" alt="logo">
+      </div>
+      <nav class="menu">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="quem-somos.html">Quem Somos</a></li>
+          <li><a href="cadastro.html">Cadastre-se</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="#" id="theme-toggle">🌙</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h1>Cadastre-se</h1>
+
+      <div id="msgError"></div>
+      <div id="msgSuccess"></div>
+
+      <form id="form-cadastro">
+
+        <div class="label-float">
+          <input type="text" id="nome" name="nome" placeholder=" " required/>
+          <label for="nome">Nome Completo</label>
+        </div>
+
+        <div class="label-float">
+          <input type="text" id="usuario" name="usuario" placeholder=" " required/>
+          <label for="usuario">Usuário</label>
+        </div>
+
+        <div class="label-float">
+          <input type="text" id="nome-materno" name="nome-materno" placeholder=" " required>
+          <label for="nome-materno">Nome Materno</label>
+        </div>
+
+        <div class="label-float">
+          <input type="email" id="email" name="email" placeholder=" " required/>
+          <label for="email">E-mail</label>
+        </div>
+
+        <div class="label-float">
+          <input type="text" id="cpf" name="cpf" placeholder="Somente números" required>
+          <label for="cpf">CPF</label>
+        </div>
+
+        <div class="label-float">
+          <input type="date" id="data-nascimento" name="data-nascimento" required>
+          <label for="data-nascimento">Data de Nascimento</label>
+        </div>
+
+        <div class="label-float">
+          <select id="sexo" name="sexo" required>
+            <option value="">Selecione</option>
+            <option value="feminino">Feminino</option>
+            <option value="masculino">Masculino</option>
+            <option value="outro">Outro</option>
+            <option value="nao-informar">Prefiro não informar</option>
+          </select>
+          <label for="sexo">Sexo</label>
+        </div>
+
+        <div class="label-float">
+          <input type="tel" id="celular" name="celular" placeholder="(DDD) 9XXXX-XXXX" required>
+          <label for="celular">Número de Celular</label>
+        </div>
+
+        <div class="label-float">
+          <input type="tel" id="telefone" name="telefone" placeholder="(DDD) XXXX-XXXX" required>
+          <label for="telefone">Telefone Fixo</label>
+        </div>
+
+        <div class="label-float">
+          <input type="text" id="endereco" name="endereco" placeholder=" " required>
+          <label for="endereco">Endereço Completo</label>
+        </div>
+
+        <div class="label-float">
+          <input type="password" id="senha" name="senha" placeholder=" " required/>
+          <label for="senha">Senha</label>
+          <i id="verSenha" class="fa fa-eye" aria-label="Mostrar senha" tabindex="0"></i>
+        </div>
+
+        <div class="label-float">
+          <input type="password" id="confirmSenha" name="confirmSenha" placeholder=" " required/>
+          <label for="confirmSenha">Confirmar Senha</label>
+          <i id="verConfirmSenha" class="fa fa-eye" aria-label="Mostrar senha" tabindex="0"></i>
+        </div>
+
+        <div class="justify-center">
+          <button type="submit">Cadastrar</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+  <script src="js/script.js"></script>
+
+</body>
+</html>
