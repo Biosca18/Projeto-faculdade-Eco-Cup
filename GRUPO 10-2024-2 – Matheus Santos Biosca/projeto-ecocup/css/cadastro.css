@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+ background-color: #d8ffcc;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed
+  
+}
+
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto ;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header {
+    background-color: #bee390;
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo img {
+    width: 5rem;
+    height: 5rem;
+}
+  
+  .menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .menu a {
+    color: rgb(44, 87, 20);
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .menu a:hover {
+    text-decoration: underline;
+  }
+
+.card {
+  background-color: #23552a;
+  padding: 70px;
+  border-radius: 4%;
+  box-shadow: 3px 3px 1px 0px #00000060;
+  width: 400px;
+  margin-top: 80px;
+}
+
+h1{
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ebffeb
+}
+
+h2{
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ebffeb
+}
+
+
+.label-float input{
+  width: 100%;
+  padding: 5px;
+  display: inline-block;
+  border: 0;
+  border-bottom: 2px solid #ebffeb;
+  background-color: transparent;
+  outline: none;
+  min-width: 180px;
+  font-size: 15px;
+  transition: all .3s ease-out;
+  border-radius: 0;
+  
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator{
+  color: #6dbe6d;
+  background-color: #6dbe6d;
+}
+
+input::placeholder{
+  color: #6dbe6d;
+}
+
+select{
+  background-color: #6dbe6d;
+  margin-top: 7px;
+  border: 2px solid #23552a;
+  padding: 6px;
+  border-radius: 5px;
+}
+
+.label-float{
+  position: relative;
+  padding-top: 30px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.label-float input:focus{
+  border-bottom: 2px solid #172e15;
+}
+
+.label-float label{
+  color: #6dbe6d;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 13px;
+  transition: all .3s ease-out;
+}
+
+button{
+  background-color: transparent;
+  border-color: #ebffeb;
+  color: #ebffeb;
+  padding: 7px;
+  font-weight: bold;
+  font-size: 12pt;
+  margin-top: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  transition: all .4s ease-out;
+}
+
+.label-float input:focus + label,
+.label-float input:valid + label{
+  font-size: 14px;
+  margin-top: 0;
+  color: #6dbe6d
+}
+
+button:hover{
+  background-color: #ebffeb;
+  color: #81d296;
+}
+
+.justify-center{
+  display: flex;
+  justify-content: center;
+}
+
+.fa-eye{
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  cursor: pointer;
+  color: #102513;
+}
+
+#msgError{
+  text-align: center;
+  color: #ff0000;
+  background-color: #ffbbbb;
+  padding: 10px;
+  border-radius: 4px;
+  display: none;
+}
+
+#msgSuccess{
+  text-align: center;
+  color: #0cbd0c;
+  background-color: #bbffbe;
+  padding: 10px;
+  border-radius: 4px;
+  display: none;
+}
+
+/* Tema Escuro - Cadastro */
+.dark-theme-cadastro {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark-theme-cadastro .header {
+  background-color: #1f1f1f;
+}
+
+.dark-theme-cadastro .menu a {
+  color: #a0e4a0;
+}
+
+.dark-theme-cadastro .menu a:hover {
+  color: #c8ffc8;
+}
+
+.dark-theme-cadastro .card {
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 8px rgba(255,255,255,0.05);
+}
+
+.dark-theme-cadastro h1 {
+  color: #a0ffb2;
+}
+
+.dark-theme-cadastro .label-float input,
+.dark-theme-cadastro select {
+  background-color: #2d2d2d;
+  color: #f0f0f0;
+  border-bottom: 2px solid #888;
+}
+
+.dark-theme-cadastro .label-float label {
+  color: #88cc88;
+}
+
+.dark-theme-cadastro input::placeholder {
+  color: #aaa;
+}
+
+.dark-theme-cadastro .fa-eye {
+  color: #ccc;
+}
+
+.dark-theme-cadastro button {
+  border-color: #88cc88;
+  color: #88cc88;
+}
+
+.dark-theme-cadastro button:hover {
+  background-color: #88cc88;
+  color: #1e1e1e;
+}
+
+.dark-theme-cadastro #msgError {
+  background-color: #4e0000;
+  color: #ffaaaa;
+}
+
+.dark-theme-cadastro #msgSuccess {
+  background-color: #003d00;
+  color: #aaffaa;
+}

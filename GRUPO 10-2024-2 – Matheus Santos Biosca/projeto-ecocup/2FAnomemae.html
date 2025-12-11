@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="css/2FA.css"/>
+  <title>Verificação de Dois Fatores</title>
+</head>
+<body>
+     <header class="header">
+    <div class="container header-content">
+      <div class="logo">
+        <img src="assets/imgs/logoEcoCup.png" alt="logo">
+      </div>
+      <nav class="menu">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="quem-somos.html">Quem Somos</a></li>
+          <li><a href="cadastro.html">Cadastre-se</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="#" id="theme-toggle">🌙</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <div class="card">
+      <h1>Confirme sua identidade</h1>
+      <h2>Qual o nome da sua mãe?</h2>
+      <div id="msgError"></div>
+      <div id="msgSuccess"></div>
+         <div class="label-float">
+          <input type="text" id="nome-materno" name="nome-materno" placeholder=" " required>
+          <label for="nome-materno">Nome Materno</label>
+        </div>
+         <div class="justify-center">
+          <button type="submit">confirmar</button>
+        </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

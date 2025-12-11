@@ -1,0 +1,148 @@
+codigo do bando de dados do projeto atualizado para o workbench/mariaDB
+
+-- ===============================
+-- Criar schema
+-- ===============================
+CREATE SCHEMA IF NOT EXISTS mydb DEFAULT CHARACTER SET utf8;
+USE mydb;
+
+-- ===============================
+-- Tabela: clientes
+-- ===============================
+CREATE TABLE IF NOT EXISTS clientes (
+   id_clientes INT NOT NULL AUTO_INCREMENT,
+   nome_completo VARCHAR(200) NOT NULL,
+   email VARCHAR(100) NOT NULL,
+   senha VARCHAR(255) NOT NULL,
+   endereco VARCHAR(255) NULL,
+   data_cadastro DATETIME NOT NULL,
+   data_nascimento DATE NOT NULL,
+   sexo VARCHAR(15) NULL,
+   nome_materno VARCHAR(200) NOT NULL,
+   cpf VARCHAR(11) NOT NULL,
+   telefone_celular VARCHAR(15) NOT NULL,
+   login VARCHAR(50) NULL,
+
+   -- ADICIONADO: Tipo de usuário
+   tipo_usuario ENUM('CLIENTE', 'ADMIN') NOT NULL DEFAULT 'CLIENTE',
+
+   PRIMARY KEY (id_clientes),
+   UNIQUE INDEX email_UNIQUE (email),
+   UNIQUE INDEX cpf_UNIQUE (cpf)
+) ENGINE=InnoDB;
+
+-- ===============================
+-- Tabela: produto
+-- ===============================
+CREATE TABLE IF NOT EXISTS produto (
+   id_produto INT NOT NULL AUTO_INCREMENT,
+   nome_produto VARCHAR(100) NOT NULL,
+   descricao TEXT NULL,
+   preco DECIMAL(10,2) NOT NULL,
+   estoque INT NOT NULL,
+   PRIMARY KEY (id_produto)
+) ENGINE=InnoDB;
+
+-- ===============================
+-- Tabela: pedido
+-- ===============================
+CREATE TABLE IF NOT EXISTS pedido (
+   id_pedido INT NOT NULL AUTO_INCREMENT,
+   data_pedido DATETIME NOT NULL,
+   status_pedido VARCHAR(45) NOT NULL,
+   valor_total DECIMAL(10,2) NOT NULL,
+   clientes_id_clientes INT NOT NULL,
+
+   PRIMARY KEY (id_pedido),
+
+   INDEX fk_pedido_clientes_idx (clientes_id_clientes),
+   CONSTRAINT fk_pedido_clientes 
+      FOREIGN KEY (clientes_id_clientes)
+      REFERENCES clientes (id_clientes)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION
+) ENGINE=InnoDB;
+
+-- ===============================
+-- Tabela: ItemPedido
+-- ===============================
+CREATE TABLE IF NOT EXISTS ItemPedido (
+   pedido_id_pedido INT NOT NULL,
+   produto_id_produto INT NOT NULL,
+   quantidade INT NOT NULL,
+   preco_unitario DECIMAL(10,2) NOT NULL,
+
+   PRIMARY KEY (pedido_id_pedido, produto_id_produto),
+
+   INDEX fk_itempedido_produto_idx (produto_id_produto),
+   INDEX fk_itempedido_pedido_idx (pedido_id_pedido),
+
+   CONSTRAINT fk_itempedido_pedido 
+      FOREIGN KEY (pedido_id_pedido)
+      REFERENCES pedido (id_pedido)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION,
+
+   CONSTRAINT fk_itempedido_produto 
+      FOREIGN KEY (produto_id_produto)
+      REFERENCES produto (id_produto)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION
+) ENGINE=InnoDB;
+
+-- ===============================
+-- Tabela: log_eventos
+-- ===============================
+CREATE TABLE IF NOT EXISTS log_eventos (
+   id_log INT NOT NULL AUTO_INCREMENT,
+   timestamp_evento TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+   fator_1_tipo VARCHAR(100) NOT NULL,
+   fator_2_descricao VARCHAR(255) NULL,
+   clientes_id_clientes INT NULL,
+
+   PRIMARY KEY (id_log),
+
+   INDEX fk_log_eventos_clientes_idx (clientes_id_clientes),
+
+   CONSTRAINT fk_log_eventos_clientes 
+      FOREIGN KEY (clientes_id_clientes)
+      REFERENCES clientes (id_clientes)
+      ON DELETE SET NULL
+      ON UPDATE NO ACTION
+) ENGINE=InnoDB;
+
+
+
+
+-- ===============================
+-- Inserir administrador padrão
+-- ===============================
+
+INSERT INTO clientes (
+   nome_completo,
+   email,
+   senha,
+   endereco,
+   data_cadastro,
+   data_nascimento,
+   sexo,
+   nome_materno,
+   cpf,
+   telefone_celular,
+   login,
+   tipo_usuario
+)
+VALUES (
+   'Administrador do Sistema',
+   'admin@admin.com',
+   SHA2('admin123', 256),   -- senha: admin123
+   'Endereço do Admin',
+   NOW(),
+   '2000-01-01',
+   'OUTRO',
+   'Desconhecida',
+   '00000000000',
+   '00000000000',
+   'admin',
+   'ADMIN'
+);
